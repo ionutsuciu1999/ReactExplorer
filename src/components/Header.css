@@ -1,0 +1,38 @@
+.headerBody{
+    height: 80px;
+    width: 100%;
+    display:inline;
+}
+.headerBarBottom{
+    background-color: #1a2221;
+    height: 40px;
+    width: 100%;
+}
+
+.headerBarTopIcon{
+    height: 70%;
+    padding: 0px 10px;
+}
+
+.tabHeader{
+    background-color: #1a2221;
+    height:75%;
+    width:230px;
+    align-self: end;
+    margin-left:10px;
+    border-radius: 8px 8px 0px 0px;
+    border-bottom: 1px solid #0d1917;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    color:#edeeee;
+}
+
+.headerBarTop{
+    background-color: #000f0d;
+    height: 40px;
+    width: 100%;
+    display:flex;
+    border-radius: 8px 8px 0px 0px;
+}
