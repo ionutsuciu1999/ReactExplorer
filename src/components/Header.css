@@ -7,6 +7,9 @@
     background-color: #1a2221;
     height: 40px;
     width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
 }
 
 .headerBarTopIcon{
@@ -24,15 +27,96 @@
     border-bottom: 1px solid #0d1917;
     display: flex;
     align-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.headerBarTopTitle{
+    text-overflow: ellipsis;
+    overflow: hidden; 
+}
+.controlsHeader{
+    white-space: nowrap;
+}
+.windowControlsImage{
+    width:16px;
+    padding: 7px 16px;
+    opacity: 80%;
+}
+.headerBarBottomFolder{
+    flex: 1 1 auto;
+    height: 70%;
+    background-color: #272f2e;
+    border-radius: 6px;
+    margin-right: 6px;
+    min-width: 100px;
+    display: flex;
     flex-wrap: wrap;
     align-items: center;
-    color:#edeeee;
+    overflow: hidden;
+    max-height: 85%;
+    overflow-y: hidden;
 }
-
+.headerBarBottomControls{
+    overflow: hidden;
+    max-height: 85%;
+    overflow-y: hidden;
+}
+.headerBarBottomSearch{
+    height: 70%;
+    background-color: #272f2e;
+    border-radius: 6px;
+    margin-right: 10px;
+    flex: 0 0 30%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
 .headerBarTop{
+    justify-content: space-between;
     background-color: #000f0d;
     height: 40px;
     width: 100%;
     display:flex;
     border-radius: 8px 8px 0px 0px;
+}
+
+.folderControlsImage{
+    width:16px;
+    padding: 6px 8px;
+    opacity: 80%;
+}
+.folderControlsImageSmall{
+    width:10px;
+    padding: 0px 8px;
+    opacity: 80%;
+}
+.folderControlsText{
+    font-size: 13px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 0px 8px;
+}
+.headerActionBar{
+    background-color: #191919;
+    height:50px;
+    border-top:2px solid #2b2b2b;
+    border-bottom: 2px solid #2b2b2b;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.actionImage{
+    width:16px;
+    padding: 0px 6px;
+    opacity: 80%;
+}
+.actionText{
+    font-size:13px;
 }
