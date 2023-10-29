@@ -12,7 +12,7 @@
     align-items: center;
 }
 
-.headerBarTopIcon{
+.tabHeader img{
     height: 70%;
     padding: 0px 10px;
 }
@@ -40,12 +40,12 @@
 .controlsHeader{
     white-space: nowrap;
 }
-.windowControlsImage{
+.controlsHeader img, .headerBarBottom div:first-child > img{
     width:16px;
     padding: 7px 16px;
     opacity: 80%;
 }
-.headerBarBottomFolder{
+.headerBarBottom div:nth-child(2){
     flex: 1 1 auto;
     height: 70%;
     background-color: #272f2e;
@@ -59,12 +59,12 @@
     max-height: 85%;
     overflow-y: hidden;
 }
-.headerBarBottomControls{
+.headerBarBottom div:first-child{
     overflow: hidden;
     max-height: 85%;
     overflow-y: hidden;
 }
-.headerBarBottomSearch{
+.headerBarBottom div:nth-child(3){
     height: 70%;
     background-color: #272f2e;
     border-radius: 6px;
@@ -93,30 +93,41 @@
     opacity: 80%;
 }
 .folderControlsImageSmall{
-    width:10px;
+    width:10px!important;
     padding: 0px 8px;
     opacity: 80%;
 }
-.folderControlsText{
+.headerBarBottom span{
     font-size: 13px;
     text-overflow: ellipsis;
     overflow: hidden;
-    padding: 0px 8px;
 }
 .headerActionBar{
     background-color: #191919;
     height:50px;
-    border-top:2px solid #2b2b2b;
-    border-bottom: 2px solid #2b2b2b;
+    border-top:2px solid #373737;
+    border-bottom: 2px solid #373737;
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: center;
+    overflow: hidden;
+    max-height: 85%;
+    overflow-y: hidden;
 }
-.actionImage{
+.headerActionBar img{
     width:16px;
-    padding: 0px 6px;
+    padding: 7px 15px 7px 20px;
     opacity: 80%;
+    margin: 10px 0px;
 }
-.actionText{
+.headerActionBar span{
     font-size:13px;
+}
+.actionLeftBorder{
+    border-left: 2px solid #373737;
+}
+.headerActionBar > div{
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
 }

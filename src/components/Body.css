@@ -1,0 +1,19 @@
+.bodyBody{
+    height:400px;
+    background-color: #191919;
+    display: flex;
+}
+
+.rightSide, .leftSide{
+    height:100%;
+}
+.rightSide{
+    border-left: 2px solid #373737;
+    flex: 1 1 90%;
+    min-width: 140px;
+}
+.leftSide{
+    flex: 1 1 200px;
+    max-width: 200px;
+    min-width: 90px;
+}

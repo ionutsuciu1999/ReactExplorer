@@ -1,0 +1,28 @@
+.menuImage{
+    width:16px;
+    padding-right: 5px;
+}
+.menuContainer{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    height:30px
+}
+.menuName{
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.fillerContainer{
+    flex: 1 0 auto;
+    max-width: 25px;
+    min-width: 10px;
+}
+.fillerContent{
+    flex: 1 1 110px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
