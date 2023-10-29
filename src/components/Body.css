@@ -11,6 +11,11 @@
     border-left: 2px solid #373737;
     flex: 1 1 90%;
     min-width: 140px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    overflow-y:auto;
 }
 .leftSide{
     flex: 1 1 200px;

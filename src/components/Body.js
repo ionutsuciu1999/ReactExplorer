@@ -1,5 +1,6 @@
 import React from "react"
 import LeftFolder from "./LeftFolder.js"
+import RightFolder from "./RightFolder.js"
 import './Body.css';
 import projectsData from "../projectsData.js"
 
@@ -12,7 +13,16 @@ export default function Body() {
                 item={item}
             />
         )
-    })  
+    });
+    
+    const elementsProjects = projectsData.data.projects.map(item => {
+        return (
+            <RightFolder
+                key={item.id}
+                item={item}
+            />
+        )
+    });  
 
 console.log(projectsData);
     return (
@@ -21,7 +31,7 @@ console.log(projectsData);
                 {elementsMenu}
             </div>
             <div className="rightSide">
-
+                {elementsProjects}
             </div>
         </div>
     )

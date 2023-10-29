@@ -26,6 +26,33 @@ export default {
                 "name": "Video",
                 "url": "videoSmall.png",
             }
+        ],
+        "projects": [
+            {
+                "id": "1",
+                "name": "Telegram Bot",
+                "url": "python.png",
+            },
+            {
+                "id": "2",
+                "name": "Test",
+                "url": "documentSmall.png",
+            },
+            {
+                "id": "3",
+                "name": "Test",
+                "url": "JavaScript.png",
+            },
+            {
+                "id": "4",
+                "name": "Test2",
+                "url": "php.png",
+            },
+            {
+                "id": "5",
+                "name": "Test3",
+                "url": "JavaScript.png",
+            }
         ]
     }
 }
