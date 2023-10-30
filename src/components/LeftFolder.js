@@ -3,8 +3,9 @@ import './LeftFolder.css';
 
 
 export default function LeftFolder(props) {
+    console.log(props);
    return(
-        <div className="menuContainer">
+        <div className="menuContainer" onClick={props.setFolder(props.item.searchType)}>
             <div className="fillerContainer">
             </div>
             <div className="fillerContent">
