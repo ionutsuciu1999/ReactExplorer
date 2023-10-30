@@ -3,9 +3,21 @@ import './LeftFolder.css';
 
 
 export default function LeftFolder(props) {
-    console.log(props);
-   return(
-        <div className="menuContainer" onClick={props.setFolder(props.item.searchType)}>
+   
+    let highlighted = "";
+    if(props.indexSelected==Number(props.item.id)){
+        highlighted = "highlighted";
+    }else{
+        highlighted = "notHighlighted";
+    }
+
+    function setFolderType(){
+        props.setFolder(props.item.searchType);
+        props.setIndexSelected(Number(props.item.id));
+    }
+    return(
+        /**"menuContainer $ */
+        <div className={highlighted} onClick={setFolderType}>
             <div className="fillerContainer">
             </div>
             <div className="fillerContent">

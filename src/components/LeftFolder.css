@@ -2,12 +2,20 @@
     width:16px;
     padding-right: 5px;
 }
-.menuContainer{
+.notHighlighted{
     display: flex;
     align-content: center;
     align-items: center;
     flex-wrap: nowrap;
     height:30px
+}
+.highlighted{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    height:30px;
+    background-color: rgb(75, 75, 75);
 }
 .menuName{
     text-overflow: ellipsis;
@@ -26,7 +34,10 @@
     flex-wrap: nowrap;
     overflow: hidden;
 }
-.menuContainer:hover{
+.notHighlighted:hover{
     background-color: rgb(75, 75, 75);
     cursor: pointer;
+}
+.selectedElement{
+    background-color: rgb(75, 75, 75);
 }

@@ -1,5 +1,17 @@
 #root{
+    height: 100%;
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
+}
+html{
+    height: 100%;
+}
+body{
+    overflow: hidden;
+    height:100%;
+    margin:0px;
+    background-color: #cfcfcf;
+background: radial-gradient(circle, transparent 20%, #cfcfcf 20%, #cfcfcf 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #cfcfcf 20%, #cfcfcf 80%, transparent 80%, transparent) 25px 25px, linear-gradient(#ffffff 2px, transparent 2px) 0 -1px, linear-gradient(90deg, #ffffff 2px, #cfcfcf 2px) -1px 0;
+background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
 }
