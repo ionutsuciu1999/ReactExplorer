@@ -1,9 +1,0 @@
-.mainWindow {
-  font-family: "Segoe-UI";
-  color: #dddddd;
-}
-
-@font-face {
-  font-family: "Segoe-UI";
-  src: url("../public/fonts/Segoe-UI-Variable-Static-Display.ttf");
-}

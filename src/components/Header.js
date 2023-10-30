@@ -2,10 +2,37 @@ import React from "react"
 import './Header.css';
 
 
-export default function Header() {
+export default function Header(props) {
+    let executeOnce = 1;
+    let startXposition = 0;
+    let movedX = 0;
+    let startYposition = 0;
+    let movedY = 0;
+    function dragStart(evt) {
+        //get starting position
+        if(executeOnce == 1){
+            startXposition = evt.clientX;
+            startYposition = evt.clientY;
+            executeOnce = 0;
+        }else{
+            movedY = props.topValue+(evt.clientY - startYposition);
+            movedX = props.leftValue+(evt.clientX - startXposition);
+            props.updateLeft(movedX);
+            props.updateTop(movedY);
+        }
+    }
+      
+    function dragEnd(evt) {
+        console.log("END:"+evt.clientX);
+        console.log("END2:"+evt.clientY)
+        props.updateLeft(props.leftValue+(evt.clientX - startXposition));
+        props.updateTop(props.topValue+(evt.clientY - startYposition));
+        executeOnce = 1;
+    }
+
     return (
-        <header className="headerBody">
-            <div className="headerBarTop">
+        <header className="headerBody" onDrag={dragStart} onDragEnd={dragEnd}>
+            <div className="headerBarTop" id="headerBarTop" >
                 <div className="tabHeader">
                     <img src="./icons/Computer.png"/>
                     <span className="headerBarTopTitle">Ionut PORTFOLIO</span>

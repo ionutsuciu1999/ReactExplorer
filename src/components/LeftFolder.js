@@ -3,7 +3,6 @@ import './LeftFolder.css';
 
 
 export default function LeftFolder(props) {
-    console.log(props);
    return(
         <div className="menuContainer">
             <div className="fillerContainer">

@@ -5,3 +5,9 @@ body {
 code {
   
 }
+
+#root{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}

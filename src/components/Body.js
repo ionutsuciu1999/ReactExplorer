@@ -24,7 +24,6 @@ export default function Body() {
         )
     });  
 
-console.log(projectsData);
     return (
         <div className="bodyBody">
             <div className="leftSide">

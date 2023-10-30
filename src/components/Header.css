@@ -44,6 +44,7 @@
     width:16px;
     padding: 7px 16px;
     opacity: 80%;
+    cursor: pointer;
 }
 .headerBarBottom div:nth-child(2){
     flex: 1 1 auto;
@@ -85,6 +86,7 @@
     width: 100%;
     display:flex;
     border-radius: 8px 8px 0px 0px;
+    cursor: all-scroll;
 }
 
 .folderControlsImage{
