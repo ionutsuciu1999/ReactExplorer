@@ -6,11 +6,12 @@ import {useState} from 'react'
 import './App.css';
 
 export default function App() {
-    let [leftVal, setLeft] = useState(10);
-    let [topVal, setTop] = useState(20);
+    let [leftVal, setLeft] = useState(0);
+    let [topVal, setTop] = useState(0);
+    let [position, setPosition] = useState("relative");
     return (
-        <div className="mainWindow" style={{ left: `${leftVal}px`,  top: `${topVal}px`}}>
-            <Header updateLeft={setLeft} leftValue={leftVal} updateTop={setTop} topValue={topVal}/>
+        <div className="mainWindow" id="mainWindow" style={{ left: `${leftVal}px`,  top: `${topVal}px`, position: `${position}`}}>
+            <Header updateLeft={setLeft} leftValue={leftVal} updateTop={setTop} topValue={topVal} currentPosition={position} updatePosition={setPosition}/>
             <Body />
             <Footer />
         </div>

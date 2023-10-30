@@ -6,5 +6,7 @@
 .mainWindow {
   font-family: "Segoe-UI";
   color: #dddddd;
-  position:absolute;
+  width: 100%;
+  max-width: 825px;
+  box-shadow: 7px 8px 20px 0px #6f6f6f;
 }

@@ -3,36 +3,37 @@ import './Header.css';
 
 
 export default function Header(props) {
-    let executeOnce = 1;
-    let startXposition = 0;
-    let movedX = 0;
-    let startYposition = 0;
-    let movedY = 0;
-    function dragStart(evt) {
-        //get starting position
-        if(executeOnce == 1){
-            startXposition = evt.clientX;
-            startYposition = evt.clientY;
-            executeOnce = 0;
-        }else{
-            movedY = props.topValue+(evt.clientY - startYposition);
-            movedX = props.leftValue+(evt.clientX - startXposition);
-            props.updateLeft(movedX);
-            props.updateTop(movedY);
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+
+    function dragMouseDown(e) {
+        console.log(props);
+        if(props.currentPosition=="relative"){
+            props.updatePosition("absolute");
         }
+        e.preventDefault();
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        document.onmousemove = elementDrag;
     }
-      
-    function dragEnd(evt) {
-        console.log("END:"+evt.clientX);
-        console.log("END2:"+evt.clientY)
-        props.updateLeft(props.leftValue+(evt.clientX - startXposition));
-        props.updateTop(props.topValue+(evt.clientY - startYposition));
-        executeOnce = 1;
+    function elementDrag(e) {
+        e.preventDefault();
+        // calculate the new cursor position:
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        // set the element's new position:
+        props.updateTop(props.topValue - pos2);
+        props.updateLeft(props.leftValue - pos1);
     }
+    function closeDragElement() {
+        /* stop moving when mouse button is released:*/
+        document.onmouseup = null;
+        document.onmousemove = null;
+      }
 
     return (
-        <header className="headerBody" onDrag={dragStart} onDragEnd={dragEnd}>
-            <div className="headerBarTop" id="headerBarTop" >
+        <header className="headerBody">
+            <div className="headerBarTop" id="headerBarTop"  onMouseDown={dragMouseDown}>
                 <div className="tabHeader">
                     <img src="./icons/Computer.png"/>
                     <span className="headerBarTopTitle">Ionut PORTFOLIO</span>
@@ -62,9 +63,11 @@ export default function Header(props) {
                 </div>
             </div>
             <div className="headerActionBar">
-                <img src="./icons/new.png"/>
-                <span>Nuovo</span>
-                <img className="folderControlsImageSmall" src="./icons/collapseBottom.png"/>
+                <div>
+                    <img src="./icons/new.png"/>
+                    <span>Nuovo</span>
+                    <img className="folderControlsImageSmall" src="./icons/collapseBottom.png"/>
+                </div>
                 <img className="actionLeftBorder" src="./icons/cut.png"/>
                 <img src="./icons/copy.png"/>
                 <img src="./icons/paste.png"/>
