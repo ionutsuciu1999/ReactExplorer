@@ -3,17 +3,29 @@ import Header from "./Header.js"
 import Body from "./Body.js"
 import Footer from "./Footer.js"
 import {useState} from 'react'
+import {createContext} from 'react'
 import './App.css';
+
+
+export const ThemeContext = createContext(null);
 
 export default function App() {
     let [leftVal, setLeft] = useState(0);
     let [topVal, setTop] = useState(0);
     let [position, setPosition] = useState("relative");
+    let [theme, setTheme] = useState("dark");
+
+    function toggleTheme(){
+        setTheme((curr)=>(curr==="light" ? "dark" : "light"));
+    }
+
     return (
-        <div className="mainWindow" id="mainWindow" style={{ left: `${leftVal}px`,  top: `${topVal}px`, position: `${position}`}}>
-            <Header updateLeft={setLeft} leftValue={leftVal} updateTop={setTop} topValue={topVal} currentPosition={position} updatePosition={setPosition}/>
-            <Body />
-            <Footer />
-        </div>
+        <ThemeContext.Provider value={{theme, toggleTheme}}>
+            <div className={`mainWindow ${(theme)}`} id="mainWindow" style={{ left: `${leftVal}px`,  top: `${topVal}px`, position: `${position}`}}>
+                <Header updateLeft={setLeft} leftValue={leftVal} updateTop={setTop} topValue={topVal} currentPosition={position} updatePosition={setPosition}/>
+                <Body />
+                <Footer />
+            </div>
+        </ThemeContext.Provider>
     )
 }

@@ -1,5 +1,4 @@
 import React from "react"
-import './LeftFolder.css';
 
 
 export default function LeftFolder(props) {
