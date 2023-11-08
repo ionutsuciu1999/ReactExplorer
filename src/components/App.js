@@ -21,10 +21,18 @@ export default function App() {
 
     return (
         <ThemeContext.Provider value={{theme, toggleTheme}}>
-            <div className={`mainWindow ${(theme)}`} id="mainWindow" style={{ left: `${leftVal}px`,  top: `${topVal}px`, position: `${position}`}}>
-                <Header updateLeft={setLeft} leftValue={leftVal} updateTop={setTop} topValue={topVal} currentPosition={position} updatePosition={setPosition}/>
-                <Body />
-                <Footer />
+            <div id="mainWidonwContainer" style={{ left: `${leftVal}px`,  top: `${topVal}px`, position: `${position}`}}>
+                <div id="leftResizer"></div>
+                <div id="verticalWindowContainer">
+                    <div id="topResizer"></div>
+                    <div className={`mainWindow ${(theme)}`} id="mainWindow" >
+                        <Header updateLeft={setLeft} leftValue={leftVal} updateTop={setTop} topValue={topVal} currentPosition={position} updatePosition={setPosition}/>
+                        <Body />
+                        <Footer />
+                    </div>
+                    <div id="bottomResizer"></div>
+                </div>
+                <div id="rightResizer"></div>
             </div>
         </ThemeContext.Provider>
     )

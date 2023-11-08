@@ -11,7 +11,7 @@ body{
     overflow: hidden;
     height:100%;
     margin:0px;
-    background-color: #cfcfcf;
-background: radial-gradient(circle, transparent 20%, #cfcfcf 20%, #cfcfcf 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #cfcfcf 20%, #cfcfcf 80%, transparent 80%, transparent) 25px 25px, linear-gradient(#ffffff 2px, transparent 2px) 0 -1px, linear-gradient(90deg, #ffffff 2px, #cfcfcf 2px) -1px 0;
-background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
+    background-color: #ead50a;
+    background: radial-gradient(circle, transparent 20%, #ead50a 20%, #ead50a 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #ead50a 20%, #ead50a 80%, transparent 80%, transparent) 62.5px 62.5px, linear-gradient(#dbc500 5px, transparent 5px) 0 -2.5px, linear-gradient(90deg, #dbc500 5px, #ead50a 5px) -2.5px 0;
+    background-size: 125px 125px, 125px 125px, 62.5px 62.5px, 62.5px 62.5px;
 }
