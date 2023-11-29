@@ -10,8 +10,6 @@ import {useContext} from 'react';
 
 
 export default function Body() {
-    const themeSwitch = useContext(ThemeContext);
-
 
     let [folder, setFolder] = useState("code");
     let [indexSelected, setIndexSelected] = useState(1);
@@ -56,7 +54,7 @@ export default function Body() {
                     {elementsProjects}
                 </div>
             </div>
-             )}
+            )}
         </ThemeContext.Consumer>
     )
 }

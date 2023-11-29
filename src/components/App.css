@@ -8,24 +8,24 @@
   src: url("../../public/fonts/Druk Wide Web Bold Regular.ttf");
 }
 
-#topResizer, #bottomResizer{
+.topResizer, .bottomResizer{
   width: 100%;
   height:10px;
 }
-#topResizer:hover, #bottomResizer:hover{
+.topResizer:hover, .bottomResizer:hover{
   cursor:n-resize;
 }
-#rightResizer, #leftResizer{
+.rightResizer, .leftResizer{
   width: 10px;
 }
-#rightResizer:hover, #leftResizer:hover{
+.rightResizer:hover, .leftResizer:hover{
   cursor:e-resize;
 }
-#verticalWindowContainer{
+.verticalWindowContainer{
   width:100%;
 }
 
-#mainWidonwContainer{
+.mainWidonwContainer{
   width: 100%;
   max-width: 825px;
   height: fit-content;

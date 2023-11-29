@@ -42,50 +42,57 @@ export default {
                 "id": "1",
 				"type": "code",
                 "name": "Telegram Bot",
-                "url": "python.png",
+                "files": [""],
             },
             {
                 "id": "2",
 				"type": "code",
                 "name": "Test",
-                "url": "documentSmall.png",
+				"files": [""],
             },
             {
                 "id": "3",
 				"type": "code",
                 "name": "Test",
-                "url": "JavaScript.png",
+				"files": [""],
             },
             {
                 "id": "4",
 				"type": "code",
                 "name": "Test2",
-                "url": "php.png",
+				"files": [""],
             },
             {
                 "id": "5",
 				"type": "code",
                 "name": "Test3",
-                "url": "JavaScript.png",
+				"files": [""],
             },
 			{
 				"id": "6",
 				"type": "3dModel",
-                "name": "Cyber frog",
-                "url": "Help.png",
+                "name": "Cardboard Tank",
+                "files": ["FinalRender.mp4","Render3dModel.mp4","3dModell.png","StillFrame.png"],
 			},
 			{
 				"id": "7",
 				"type": "3dModel",
-                "name": "Cardboard tank",
-                "url": "Help.png",
+                "name": "CoolCatsClub",
+                "files": ["FinalRender.mp4","3dModel.mp4","0296.png"],
 			},
 			{
 				"id": "8",
 				"type": "3dModel",
-                "name": "Cool cats club",
-                "url": "Help.png",
+                "name": "Cyber Frog",
+                "files": ["FinalRender.mp4","3dModelFrog.png","StillFrame.png"],
+			},
+			{
+				"id": "9",
+				"type": "3dModel",
+                "name": "Lego Man",
+                "files": ["FinalRender.mp4","HowItWasMade.mp4","StillFramee.png","0005.png"],
 			}
 		]
     }
 }
+
