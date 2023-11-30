@@ -35,7 +35,7 @@ export default function BodyWindow(props) {
             if(projectFile<filesNumber-1){
                 setProjectFile(projectFile+1);
             }else{
-                projectFile = 0;
+                projectFile = -1;
             }
         }else if(direction=="prev"){
             if(projectFile>filesNumber){
