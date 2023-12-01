@@ -8,6 +8,25 @@
   src: url("../../public/fonts/Druk Wide Web Bold Regular.ttf");
 }
 
+#windowFooter img{
+  filter:invert(1);
+  width:30px;
+  padding:0px 5px;
+}
+
+#iconFiller{
+  flex: 1;
+  min-width: 200px;
+}
+
+#windowFooter{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding-right: 10px;
+}
+
 .topResizer, .bottomResizer{
   width: 100%;
   height:10px;

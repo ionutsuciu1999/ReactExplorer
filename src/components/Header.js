@@ -8,6 +8,7 @@ export default function Header(props) {
         console.log(props);
         if(props.currentPosition=="relative"){
             props.updatePosition("absolute");
+            //todo right position
         }
         e.preventDefault();
         pos3 = e.clientX;

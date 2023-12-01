@@ -34,13 +34,12 @@ export default function Header(props) {
         <header className="headerBody">
             <div className="headerBarTop" id="headerBarTop"  onMouseDown={dragMouseDown}>
                 <div className="tabHeader">
-                    <img src="./icons/Computer.png"/>
                     <span className="headerBarTopTitle">Ionut PORTFOLIO</span>
                 </div>
                 <div className="controlsHeader">
                     <img src="./icons/minimizeWindow.png"/>
                     <img src="./icons/maximizeWindow.png"/>
-                    <img src="./icons/closeWindow.png"/>
+                    <img src="./icons/closeWindow.png" id="closeProjectWindow" onClick={()=>document.getElementById("projectWindow").style.display = "none"}/>
                 </div>
             </div>
         </header>

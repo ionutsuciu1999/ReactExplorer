@@ -14,7 +14,7 @@ export default function Window(props) {
     let [position, setPosition] = useState("relative");
 
     return (
-        <div className="mainWidonwContainer" style={{ left: `${leftVal}px`,  top: `${topVal}px`, position: `${position}`}}>
+        <div className="mainWidonwContainer" id="projectWindow" style={{ left: `${leftVal}px`,  top: `${topVal}px`, position: `${position}`, display:`none`}}>
             <div className="leftResizer"></div>
             <div className="verticalWindowContainer">
                 <div className="topResizer"></div>

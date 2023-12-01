@@ -6,7 +6,7 @@ export default function RightFolder(props) {
    return(
     <ProjectContext.Consumer>
         {projectSwitch => (
-            <div className="projectContainer" onClick={()=>projectSwitch.setSelectedProject(props.item.id)}>
+            <div className="projectContainer" onClick={()=>{projectSwitch.setSelectedProject(props.item.id); document.getElementById("projectWindow").style.display = ""}}>
                 <img src={`../projects/${props.item.name}/icon.png`} />
                 <span>{props.item.name}</span>
             </div>
