@@ -37,7 +37,7 @@ export default function App() {
     }
     function resizeElementDrag(e) {
         e.preventDefault();
-        
+        //todo when resizing also move window up or down so it looks like its reisizing from top or bottom instead of middle
         pos2 = pos4 - e.clientY;
         console.log("pos2="+pos2);
         if(pos2<0){
