@@ -7,7 +7,7 @@ export default function Header(props) {
     function dragMouseDown(e) {
         console.log(props);
         if(props.currentPosition=="relative"){
-            props.updatePosition("absolute");
+            props.updatePosition("relative");
             //todo right position
         }
         e.preventDefault();
@@ -29,7 +29,7 @@ export default function Header(props) {
         /* stop moving when mouse button is released:*/
         document.onmouseup = null;
         document.onmousemove = null;
-      }
+    }
 
     return (
         <header className="headerBody">

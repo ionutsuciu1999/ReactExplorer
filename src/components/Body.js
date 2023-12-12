@@ -9,7 +9,7 @@ import {ThemeContext} from './App.js'
 import {useContext} from 'react';
 
 
-export default function Body() {
+export default function Body(props) {
 
     let [folder, setFolder] = useState("code");
     let [indexSelected, setIndexSelected] = useState(1);
@@ -40,7 +40,7 @@ export default function Body() {
     return (
         <ThemeContext.Consumer>
             {themeSwitch => (
-            <div className="bodyBody">
+            <div className="bodyBody" style={{ height: `${props.value.windowHeight}px`}}>
                 <div className="leftSide">
                     {elementsMenu}
                     <div id="switchFlex">
