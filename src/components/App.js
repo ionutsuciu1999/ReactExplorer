@@ -14,7 +14,7 @@ export const ProjectContext = createContext(null);
 export default function App() {
     let [leftVal, setLeft] = useState(0);
     let [topVal, setTop] = useState(0);
-    let [position, setPosition] = useState("relative");
+    let [position, setPosition] = useState("absolute");
     let [theme, setTheme] = useState("dark");
     let [selectedProject, setSelectedProject] = useState(1);
 
@@ -23,13 +23,18 @@ export default function App() {
     }
 
     let [windowHeight, setWindowHeight] = useState(400);
+    let [windowWidth, setWindowWidth] = useState(800);
 
-
-    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0, previousY = 0, finalHeight = 0;
-
-    function resizeMouseDown(e) {
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0, previousY = 0, finalHeight = 0, finalWidth = 0, windowVerticalMove = 0, windowHorizontalMove = 0, resizeDirection = "top", minWidth = 400, minHeight = 230;
+    //todo se setLeft function and pass it and call it 
+    //to pass argument other than e https://stackoverflow.com/questions/6348494/addeventlistener-vs-onclick and https://stackoverflow.com/questions/10000083/javascript-event-handler-with-parameters
+    function resizeMouseDown(e,direction,setLeft) {
+        console.log(setLeft)
         console.log("ok grago");
+        resizeDirection = direction;
         e.preventDefault();
+        //initial click position
+        pos3 = e.clientX;
         pos4 = e.clientY;
         console.log("click="+pos4);
         document.onmouseup = resizeCloseDragElement;
@@ -37,18 +42,56 @@ export default function App() {
     }
     function resizeElementDrag(e) {
         e.preventDefault();
-        //todo when resizing also move window up or down so it looks like its reisizing from top or bottom instead of middle
-        pos2 = pos4 - e.clientY;
-        console.log("pos2="+pos2);
-        if(pos2<0){
+        console.log(resizeDirection);
+        //when dragging calculare new size relatively to initial click position
+        if(resizeDirection=="top"){
+            pos2 = pos4 - e.clientY;
             finalHeight = windowHeight + pos2;
-        }else{
-            finalHeight = windowHeight - pos2;
-            
+            windowVerticalMove = topVal-pos2;
+            if(finalHeight>minHeight){
+                setTop(windowVerticalMove);
+                setWindowHeight(finalHeight);
+            }else{
+                setWindowHeight(minHeight);
+                setTop(windowVerticalMove);
+            }
+        }else if(resizeDirection=="bottom"){
+            pos2 = pos4 - e.clientY;
+            finalHeight = windowHeight - (pos2);
+            windowVerticalMove = topVal;
+            if(finalHeight>minHeight){
+                setTop(windowVerticalMove);
+                setWindowHeight(finalHeight);
+            }else{
+                setWindowHeight(minHeight);
+                setTop(windowVerticalMove);
+            }
+        }else if(resizeDirection=="left"){
+            pos1 = pos3 - e.clientX;
+            finalWidth = windowWidth + pos1;
+            windowHorizontalMove = leftVal-pos1;
+            if(finalWidth>minWidth){
+                setLeft(windowHorizontalMove);
+                setWindowWidth(finalWidth);
+            }else{
+                setLeft(windowHorizontalMove);
+                setWindowWidth(minWidth);
+            }
+        }else if(resizeDirection=="right"){
+            pos1 = pos3 - e.clientX;
+            finalWidth = windowWidth - (pos1);
+            windowHorizontalMove = leftVal;
+            if(finalWidth>minWidth){
+                setLeft(windowHorizontalMove);
+                setWindowWidth(finalWidth);
+            }else{
+                setLeft(windowHorizontalMove);
+                setWindowWidth(minWidth);
+            }
         }
-        console.log(finalHeight);
         
-        setWindowHeight(finalHeight);
+        
+        
         previousY = e.clientY;
         console.log("....");
         // set the element's new position:
@@ -63,20 +106,20 @@ export default function App() {
     return (
         <ProjectContext.Provider value={{selectedProject, setSelectedProject}}>
         <ThemeContext.Provider value={{theme, toggleTheme}}>
-            <div className="mainWidonwContainer" style={{ left: `${leftVal}px`,  top: `${topVal}px`, position: `${position}`}}>
-                <div className="leftResizer"></div>
+            <div className="mainWidonwContainer" style={{ left: `${leftVal}px`,  top: `${topVal}px`, position: `${position}`, width: `${windowWidth}px`}}>
+                <div className="leftResizer" onMouseDown={(e)=>resizeMouseDown(e,"left")}></div>
                 <div className="verticalWindowContainer" >
-                    <div className="topResizer" onMouseDown={resizeMouseDown}></div>
+                    <div className="topResizer" onMouseDown={(e)=>resizeMouseDown(e,"top")}></div>
                     <div className={`mainWindow ${(theme)}`} id="mainWindow" >
                         <Header updateLeft={setLeft} leftValue={leftVal} updateTop={setTop} topValue={topVal} currentPosition={position} updatePosition={setPosition}/>
-                        <Body value={{windowHeight}}/>
+                        <Body height={windowHeight} width={windowWidth}/>
                         <Footer />
                     </div>
-                    <div className="bottomResizer" onMouseDown={resizeMouseDown}></div>
+                    <div className="bottomResizer" onMouseDown={(e)=>resizeMouseDown(e,"bottom")}></div>
                 </div>
-                <div className="rightResizer"></div>
+                <div className="rightResizer" onMouseDown={(e)=>resizeMouseDown(e,"right")}></div>
             </div>
-            <Window theme={theme} selectedProject={selectedProject}/>
+            <Window theme={theme} selectedProject={selectedProject} resizeMouseDown={resizeMouseDown}/>
         </ThemeContext.Provider>
         </ProjectContext.Provider>
     )

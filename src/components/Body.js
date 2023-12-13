@@ -10,7 +10,6 @@ import {useContext} from 'react';
 
 
 export default function Body(props) {
-
     let [folder, setFolder] = useState("code");
     let [indexSelected, setIndexSelected] = useState(1);
     const elementsMenu = projectsData.data.menu.map(item => {
@@ -40,7 +39,7 @@ export default function Body(props) {
     return (
         <ThemeContext.Consumer>
             {themeSwitch => (
-            <div className="bodyBody" style={{ height: `${props.value.windowHeight}px`}}>
+            <div className="bodyBody" style={{ height: `${props.height}px`}}>
                 <div className="leftSide">
                     {elementsMenu}
                     <div id="switchFlex">
