@@ -11,22 +11,50 @@ import ProjectResource from "./ProjectResource.js";
 export default function BodyWindow(props) {
     
     let filesNumber = 0;
+    let projectTitle = "";
+    let projectDescription = "";
+    let projectIcons = [];
+
     projectsData.data.projects.map(item => {
         if(item.id==props.selectedProject){
             filesNumber = item.files.length;
+            projectTitle = item.name;
+            projectDescription = item.description;
+            console.log(projectIcons);
+            for(var i = 0; i<item.icons.length; i++){
+                projectIcons.push(item.icons[i]);
+            }
+            console.log(projectIcons);
         }
     });
+
+
+
 
     let [projectFile, setProjectFile] = useState(0);
     const resourceProjects = projectsData.data.projects.map(item => {
         if(item.id==props.selectedProject){
             return(
             <ProjectResource
-                name={item.name}
+                folder="projects/"
+                name={item.name+"/"}
                 file={item.files[projectFile]}
             />
             )
         }
+    });
+
+    const iconsProject = projectIcons.map(item => {
+        
+            console.log(item);
+            
+            return(
+            <ProjectResource
+                folder="icons/"
+                name={""}
+                file={item}
+            />
+            )
     });
 
     function updateProjectFile(direction){
@@ -47,12 +75,16 @@ export default function BodyWindow(props) {
     }
 
     return (
-        <div className="bodyProject">
-            <div id="previousProject"><img className="projectControls" src="./icons/collapseLeft.png" onClick={()=>updateProjectFile("prev")}/></div>
-            <div className="projectDiv">
-                {resourceProjects}
+        <div className="bodyProjectContainer">
+            <div className="bodyProject">
+                <div id="previousProject"><img className="projectControls" src="./icons/collapseLeft.png" onClick={()=>updateProjectFile("prev")}/></div>
+                <div className="projectDiv">
+                    {resourceProjects}
+                </div>
+                <div id="nextProject"><img className="projectControls" src="./icons/collapseRight.png" onClick={()=>updateProjectFile("next")} /></div>
             </div>
-            <div id="nextProject"><img className="projectControls" src="./icons/collapseRight.png" onClick={()=>updateProjectFile("next")} /></div>
+            <div className="projectTop"><span className="projectTitle">{projectTitle}</span><div className="projectResourceIcons">{iconsProject}</div></div>
+            <div className="projectDescription">{projectDescription}</div>
         </div>
     )
 }

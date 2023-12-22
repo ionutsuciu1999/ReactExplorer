@@ -33,8 +33,7 @@ export default function Header(props) {
     return (
         <header className="headerBody">
             <div className="headerBarTop" id="headerBarTop"  onMouseDown={dragMouseDown}>
-                <div className="tabHeader">
-                    <span className="headerBarTopTitle">Ionut PORTFOLIO</span>
+                <div>
                 </div>
                 <div className="controlsHeader">
                     <img src="./icons/minimizeWindow.png"/>
