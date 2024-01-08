@@ -75,7 +75,7 @@ export default function BodyWindow(props) {
     }
 
     return (
-        <div className="bodyProjectContainer">
+        <div className="bodyProjectContainer" style={{ height: `${props.height}px`}}>
             <div className="bodyProject">
                 <div id="previousProject"><img className="projectControls" src="./icons/collapseLeft.png" onClick={()=>updateProjectFile("prev")}/></div>
                 <div className="projectDiv">
