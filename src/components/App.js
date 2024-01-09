@@ -24,8 +24,11 @@ export default function App() {
 
     let [windowHeight, setWindowHeight] = useState(400);
     let [windowWidth, setWindowWidth] = useState(800);
-
-    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0, previousY = 0, finalHeight = 0, finalWidth = 0, windowVerticalMove = 0, windowHorizontalMove = 0, resizeDirection = "top", minWidth = 400, minHeight = 230;
+    let [pos1,setPos1] = useState(0);
+    let [pos2,setPos2] = useState(0);
+    let [pos3,setPos3] = useState(0);
+    let [pos4,setPos4] = useState(0);
+    var previousY = 0, finalHeight = 0, finalWidth = 0, windowVerticalMove = 0, windowHorizontalMove = 0, resizeDirection = "top", minWidth = 400, minHeight = 230;
     //todo se setLeft function and pass it and call it 
     //to pass argument other than ehttps://stackoverflow.com/questions/71514671/how-to-pass-setstate-into-another-function-and-use-it-to-target-value-from-mater
 
