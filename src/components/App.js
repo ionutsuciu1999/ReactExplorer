@@ -30,25 +30,27 @@ export default function App() {
     //to pass argument other than ehttps://stackoverflow.com/questions/71514671/how-to-pass-setstate-into-another-function-and-use-it-to-target-value-from-mater
 
     //todo da qualche parte la 2 finestra viene spostata quando ridimensionata alle stesse posizioni della prima, POS1,2,3,4.
-    const resizeMouseDown = (e,direction,setDir,setWind) => {
+    const resizeMouseDown = (e,direction,setDir,oldWindowSize,setWind,oldWindowPosition) => {
         console.log("ok grago");
+        
         e.preventDefault();
         //initial click position
         pos3 = e.clientX;
         pos4 = e.clientY;
+
         var handlerAAA = function(e) {resizeCloseDragElement()}
-        var handlerBBB = function(e) {resizeElementDrag(e,direction,setDir,setWind)}
+        var handlerBBB = function(e) {resizeElementDrag(e,direction,setDir,oldWindowSize,setWind,oldWindowPosition)}
         document.addEventListener("mouseup",handlerAAA,false);
         document.addEventListener("mousemove",handlerBBB,false);
 
-        const resizeElementDrag = (e,resizeDirection,setDir,setWind) =>{
+        const resizeElementDrag = (e,resizeDirection,setDir,oldWindowSize,setWind,oldWindowPosition) =>{
             e.preventDefault();
             
             //when dragging calculare new size relatively to initial click position
             if(resizeDirection=="top"){
                 pos2 = pos4 - e.clientY;
-                finalHeight = windowHeight + pos2;
-                windowVerticalMove = topVal-pos2;
+                finalHeight = oldWindowSize + pos2;
+                windowVerticalMove = oldWindowPosition-pos2;
                 if(finalHeight>minHeight){
                     setDir(windowVerticalMove);
                     setWind(finalHeight);
@@ -58,8 +60,8 @@ export default function App() {
                 }
             }else if(resizeDirection=="bottom"){
                 pos2 = pos4 - e.clientY;
-                finalHeight = windowHeight - (pos2);
-                windowVerticalMove = topVal;
+                finalHeight = oldWindowSize - (pos2);
+                windowVerticalMove = oldWindowPosition;
                 if(finalHeight>minHeight){
                     setDir(windowVerticalMove);
                     setWind(finalHeight);
@@ -68,10 +70,11 @@ export default function App() {
                     setDir(windowVerticalMove);
                 }
             }else if(resizeDirection=="left"){
-                console.log("qui");
+                
                 pos1 = pos3 - e.clientX;
-                finalWidth = windowWidth + pos1;
-                windowHorizontalMove = leftVal-pos1;
+                finalWidth = oldWindowSize + pos1;
+                windowHorizontalMove = oldWindowPosition-pos1;
+                console.log("finalWidth:"+finalWidth)
                 if(finalWidth>minWidth){
                     setDir(windowHorizontalMove);
                     setWind(finalWidth);
@@ -81,8 +84,8 @@ export default function App() {
                 }
             }else if(resizeDirection=="right"){
                 pos1 = pos3 - e.clientX;
-                finalWidth = windowWidth - (pos1);
-                windowHorizontalMove = leftVal;
+                finalWidth = oldWindowSize - (pos1);
+                windowHorizontalMove = oldWindowPosition;
                 if(finalWidth>minWidth){
                     setDir(windowHorizontalMove);
                     setWind(finalWidth);
@@ -109,17 +112,17 @@ export default function App() {
         <ProjectContext.Provider value={{selectedProject, setSelectedProject}}>
         <ThemeContext.Provider value={{theme, toggleTheme}}>
             <div className="mainWidonwContainer" style={{ left: `${leftVal}px`,  top: `${topVal}px`, position: `${position}`, width: `${windowWidth}px`}}>
-                <div className="leftResizer" onMouseDown={(e)=>resizeMouseDown(e,"left",setLeft,setWindowWidth)}></div>
+                <div className="leftResizer" onMouseDown={(e)=>resizeMouseDown(e,"left",setLeft,windowWidth,setWindowWidth,leftVal)}></div>
                 <div className="verticalWindowContainer" >
-                    <div className="topResizer" onMouseDown={(e)=>resizeMouseDown(e,"top",setTop,setWindowHeight)}></div>
+                    <div className="topResizer" onMouseDown={(e)=>resizeMouseDown(e,"top",setTop,windowHeight,setWindowHeight,topVal)}></div>
                     <div className={`mainWindow ${(theme)}`} id="mainWindow" >
                         <Header updateLeft={setLeft} leftValue={leftVal} updateTop={setTop} topValue={topVal} currentPosition={position} updatePosition={setPosition}/>
                         <Body height={windowHeight} width={windowWidth}/>
                         <Footer />
                     </div>
-                    <div className="bottomResizer" onMouseDown={(e)=>resizeMouseDown(e,"bottom",setTop,setWindowHeight)}></div>
+                    <div className="bottomResizer" onMouseDown={(e)=>resizeMouseDown(e,"bottom",setTop,windowHeight,setWindowHeight,topVal)}></div>
                 </div>
-                <div className="rightResizer" onMouseDown={(e)=>resizeMouseDown(e,"right",setLeft,setWindowWidth)}></div>
+                <div className="rightResizer" onMouseDown={(e)=>resizeMouseDown(e,"right",setLeft,windowWidth,setWindowWidth,leftVal)}></div>
             </div>
             <Window theme={theme} selectedProject={selectedProject} resizeMouseDown={resizeMouseDown}/>
         </ThemeContext.Provider>

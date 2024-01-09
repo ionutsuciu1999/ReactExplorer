@@ -20,11 +20,11 @@ export default function BodyWindow(props) {
             filesNumber = item.files.length;
             projectTitle = item.name;
             projectDescription = item.description;
-            console.log(projectIcons);
+           
             for(var i = 0; i<item.icons.length; i++){
                 projectIcons.push(item.icons[i]);
             }
-            console.log(projectIcons);
+            
         }
     });
 
@@ -46,8 +46,6 @@ export default function BodyWindow(props) {
 
     const iconsProject = projectIcons.map(item => {
         
-            console.log(item);
-            
             return(
             <ProjectResource
                 folder="icons/"
