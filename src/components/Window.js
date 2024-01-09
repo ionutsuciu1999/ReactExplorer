@@ -21,7 +21,7 @@ export default function Window(props) {
             <div className="verticalWindowContainer">
                 <div className="topResizer" onMouseDown={(e)=>props.resizeMouseDown(e,"top",setTop,windowHeight,setWindowHeight,topVal)}></div>
                 <div className={`mainWindow ${(props.theme)}`}>
-                    <HeaderWindow updateLeft={setLeft} leftValue={leftVal} updateTop={setTop} topValue={topVal} currentPosition={position} updatePosition={setPosition}/>
+                    <HeaderWindow dragMouseDown={props.dragMouseDown} updateLeft={setLeft} leftValue={leftVal} updateTop={setTop} topValue={topVal} currentPosition={position} updatePosition={setPosition}/>
                         <BodyWindow selectedProject={props.selectedProject} height={windowHeight}/>
                     <Footer />
                 </div>
