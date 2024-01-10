@@ -6,10 +6,9 @@ export default function WindowFooter() {
             <div id="iconFiller">
             
             </div>
-            <div id="inconContainer">
+            <div id="iconContainer">
                 <img src = "../icons/linkedin.svg"/>
                 <img src = "../icons/github.svg"/>
-                <img src = "../icons/instagram.svg"/>
                 <img src = "../icons/email.png"/>
             </div>
         </div>

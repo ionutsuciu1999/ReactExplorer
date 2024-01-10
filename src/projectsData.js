@@ -3,38 +3,21 @@ export default {
         "menu": [
             {
                 "id": "1",
-                "name": "Projects",
+                "name": "Programmazione",
                 "url": "folderSmall.png",
 				"searchType": "code",
             },
 			{
                 "id": "2",
-                "name": "3D Models",
+                "name": "Modelli 3D",
                 "url": "folderSmall.png",
 				"searchType": "3dModel",
             },
             {
                 "id": "3",
-                "name": "Documents",
+                "name": "Contatti e CV",
                 "url": "documentSmall.png",
 				"searchType": "documents",
-            },
-            {
-                "id": "4",
-                "name": "Music",
-                "url": "musicSmall.png",
-				"searchType": "music",
-            },
-            {
-                "id": "5",
-                "name": "Image",
-                "url": "imageSmall.png",
-				"searchType": "image",
-            },
-            {
-                "id": "6",
-                "name": "Video",
-                "url": "videoSmall.png",
             }
         ],
         "projects": [
@@ -49,7 +32,7 @@ export default {
             {
                 "id": "2",
 				"type": "code",
-                "name": "CS Autobuy",
+                "name": "CS Trading bot",
 				"files": [""],
 				"description": "",
 				"icons": ["javascript.png"]
@@ -333,6 +316,62 @@ export default {
 				"files": [""],
 				"description": "",
 				"icons": ["blender.png","python.png","javascript.png","html.png","css.png"]
+            },
+			{
+                "id": "39",
+				"type": "code",
+                "name": "Claw minigame",
+				"files": [""],
+				"description": "",
+				"icons": ["html.png","javascript.png","css.png"]
+            },
+			{
+                "id": "40",
+				"type": "code",
+                "name": "Slot minigame",
+				"files": [""],
+				"description": "",
+				"icons": ["html.png","javascript.png","css.png"]
+            },
+			{
+                "id": "41",
+				"type": "code",
+                "name": "Legge grandi numeri",
+				"files": [""],
+				"description": "",
+				"icons": ["html.png","javascript.png","css.png"]
+            },
+			{
+                "id": "42",
+				"type": "code",
+                "name": "C++ minigame",
+				"files": [""],
+				"description": "",
+				"icons": ["html.png","javascript.png","css.png"]
+            },
+			{
+                "id": "43",
+				"type": "documents",
+                "name": "Curriculum",
+				"files": [""],
+				"description": "",
+				"icons": ["html.png","javascript.png","css.png"]
+            },
+			{
+                "id": "44",
+				"type": "documents",
+                "name": "Email",
+				"files": [""],
+				"description": "",
+				"icons": ["html.png","javascript.png","css.png"]
+            },
+			{
+                "id": "45",
+				"type": "code",
+                "name": "Stencil creator",
+				"files": [""],
+				"description": "",
+				"icons": ["html.png","javascript.png","css.png"]
             },
 		]
     }

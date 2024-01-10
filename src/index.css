@@ -7,11 +7,35 @@
 html{
     height: 100%;
 }
+
+#background{
+    background: url("/public/icons/pattern.png") repeat;
+    background-size: 100px;
+    animation: slide 2s linear infinite;
+    height: 150%;
+    width: 300%;
+    position: absolute;
+    z-index: -100;
+}
+
 body{
+    height:100%;
+    margin:0px;
     overflow: hidden;
+}
+  
+@keyframes slide{
+    0%{
+        transform: translate3d(0, 0, 0);
+    }
+    100%{
+        transform: translate3d(50px, 50px, 0);
+    }
+}
+  /*overflow: hidden;
     height:100%;
     margin:0px;
     background-color: #ead50a;
     background: radial-gradient(circle, transparent 20%, #ead50a 20%, #ead50a 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #ead50a 20%, #ead50a 80%, transparent 80%, transparent) 62.5px 62.5px, linear-gradient(#dbc500 5px, transparent 5px) 0 -2.5px, linear-gradient(90deg, #dbc500 5px, #ead50a 5px) -2.5px 0;
     background-size: 125px 125px, 125px 125px, 62.5px 62.5px, 62.5px 62.5px;
-}
+    */

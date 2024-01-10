@@ -8,6 +8,7 @@ import "./index.css"
 
 
 ReactDOM.render( <>
+                    <div id="background"></div>
                     <WindowHeader />
                         <App />
                     <WindowFooter />
