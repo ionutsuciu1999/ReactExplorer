@@ -373,6 +373,14 @@ export default {
 				"description": "",
 				"icons": ["html.png","javascript.png","css.png"]
             },
+			{
+                "id": "46",
+				"type": "code",
+                "name": "HtmlToPDF",
+				"files": [""],
+				"description": "",
+				"icons": ["PHP.png","html.png","javascript.png","css.png"]
+            },
 		]
     }
 }
