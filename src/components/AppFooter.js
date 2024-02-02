@@ -7,9 +7,9 @@ export default function WindowFooter() {
             
             </div>
             <div id="iconContainer">
-                <img src = "../icons/linkedin.svg"/>
-                <img src = "../icons/github.svg"/>
-                <img src = "../icons/email.png"/>
+                <a href="https://www.linkedin.com/in/augustin-suciu/" target="_blank"><img src = "../icons/linkedin.svg"/></a>
+                <a href="https://github.com/ionutsuciu1999?tab=repositories" target="_blank"><img src = "../icons/github.svg"/></a>
+                <a><img src = "../icons/email.png"/></a>
             </div>
         </div>
     )

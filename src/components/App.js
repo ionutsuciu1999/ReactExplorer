@@ -35,16 +35,15 @@ export default function App() {
         let pageHeader = document.getElementById("windowHeader");
         let pageFooter = document.getElementById("windowFooter");
         
-        console.log("wind h:"+window.innerHeight);
-        console.log("altezza wind: "+portfolioWindow.offsetHeight);
+        let newHeight = 0;
         console.log("spaz disp: "+((window.innerHeight - pageHeader.offsetHeight) - pageFooter.offsetHeight));
         if(portfolioWindow.offsetHeight > ((window.innerHeight - pageHeader.offsetHeight) - pageFooter.offsetHeight)){
             console.log("si");
-            setWindowHeight(windowHeight + (((window.innerHeight - pageHeader.offsetHeight) - pageFooter.offsetHeight) - portfolioWindow.offsetHeight));
+            newHeight = (window.innerHeight - (pageFooter.offsetHeight + pageHeader.offsetHeight) - portfolioWindow.offsetHeight);
+            setWindowHeight(windowHeight + newHeight);
         }
-
         setLeft((window.innerWidth - (portfolioWindow.offsetWidth))/2);
-        setTop((window.innerHeight - (portfolioWindow.offsetHeight))/2);
+        setTop(((window.innerHeight - newHeight) - (portfolioWindow.offsetHeight))/2);
         
         console.log("put window project window at center on load");
     }, []);
