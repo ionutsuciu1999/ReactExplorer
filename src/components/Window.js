@@ -5,15 +5,21 @@ import Footer from "./Footer.js"
 import {useState} from 'react'
 import {createContext} from 'react'
 import './App.css';
+import {useEffect} from 'react';
 
-
-export const ThemeContext = createContext(null);
 export default function Window(props) {
     let [leftVal, setLeft] = useState(0);
     let [topVal, setTop] = useState(0);
     let [position, setPosition] = useState("absolute");
-    let [windowHeight, setWindowHeight] = useState(300);
-    let [windowWidth, setWindowWidth] = useState(600);
+    let [windowHeight, setWindowHeight] = useState(380);
+    let [windowWidth, setWindowWidth] = useState();
+
+    //doing this avoids lifting state up
+    useEffect(()=>{
+        setLeft((window.innerWidth - (document.getElementById("projectWindow").offsetWidth))/2);
+        setTop((window.innerHeight - (document.getElementById("projectWindow").offsetHeight))/2);
+        console.log("put project window at center on load");
+    }, [props.selectedProject]);
 
     return (
         <div className="mainWidonwContainer" id="projectWindow" style={{ left: `${leftVal}px`,  top: `${topVal}px`,  width: `${windowWidth}px`, position: `${position}`, display:`none`}}>

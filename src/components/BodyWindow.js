@@ -56,18 +56,18 @@ export default function BodyWindow(props) {
     });
 
     function updateProjectFile(direction){
-        console.log(filesNumber);
+        console.log(direction);
         if(direction=="next"){
             if(projectFile<filesNumber-1){
                 setProjectFile(projectFile+1);
             }else{
-                projectFile = -1;
+                setProjectFile(0);
             }
         }else if(direction=="prev"){
-            if(projectFile>filesNumber){
+            if(projectFile>0){
                 setProjectFile(projectFile-1);
             }else{
-                projectFile = filesNumber-1;
+                setProjectFile(filesNumber-1);
             }
         }
     }
@@ -75,11 +75,11 @@ export default function BodyWindow(props) {
     return (
         <div className="bodyProjectContainer" style={{ height: `${props.height}px`}}>
             <div className="bodyProject">
-                <div id="previousProject"><img className="projectControls" src="./icons/collapseLeft.png" onClick={()=>updateProjectFile("prev")}/></div>
+                <div id="previousProject"  onClick={()=>updateProjectFile("prev")}><img className="projectControls" src="./icons/collapseLeft.png"/></div>
                 <div className="projectDiv">
                     {resourceProjects}
                 </div>
-                <div id="nextProject"><img className="projectControls" src="./icons/collapseRight.png" onClick={()=>updateProjectFile("next")} /></div>
+                <div id="nextProject" onClick={()=>updateProjectFile("next")} ><img className="projectControls" src="./icons/collapseRight.png" /></div>
             </div>
             <div className="projectTop"><span className="projectTitle">{projectTitle}</span><div className="projectResourceIcons">{iconsProject}</div></div>
             <div className="projectDescription">{projectDescription}</div>

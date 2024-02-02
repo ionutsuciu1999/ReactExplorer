@@ -8,14 +8,20 @@ html{
     height: 100%;
 }
 
-#background{
-    background: url("/public/icons/pattern.png") repeat;
+@keyframes animatedBackground {
+from {
+    background-position: 0 0;
+}
+to {
+    background-position: 100% 50%;
+}
+}
+
+#root{
+    background-image: url("/public/icons/pattern.png");
     background-size: 100px;
-    animation: slide 2s linear infinite;
-    height: 150%;
-    width: 300%;
-    position: absolute;
-    z-index: -100;
+    animation: animatedBackground 20s linear infinite;
+    z-index: 0;
 }
 
 body{

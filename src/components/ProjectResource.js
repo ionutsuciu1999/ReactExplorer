@@ -2,7 +2,7 @@ import React from "react"
 import {ProjectContext} from './App.js'
 
 export default function ProjectResource(props) {
-  
+   
     if(props.file.includes(".mp4")){
         return(
             <video className="projectResource" controls>

@@ -6,6 +6,8 @@ import Footer from "./Footer.js"
 
 import {useState} from 'react'
 import {createContext} from 'react'
+import {useEffect} from 'react';
+
 import './App.css';
 
 
@@ -24,13 +26,28 @@ export default function App() {
     }
 
     let [windowHeight, setWindowHeight] = useState(400);
-    let [windowWidth, setWindowWidth] = useState(800);
+    let [windowWidth, setWindowWidth] = useState();
     var pos1=0, pos2=0,pos3=0,pos4=0,finalHeight = 0, finalWidth = 0, windowVerticalMove = 0, windowHorizontalMove = 0,  minWidth = 400, minHeight = 230;
-    
-    //put window at the center
-    document.addEventListener("DOMContentLoaded", () => {
-        console.log("Hello World!");
-    });
+
+    //put windows at the center on load and resize it
+    useEffect(()=>{
+        let portfolioWindow = document.getElementById("mainPortfolioWindow");
+        let pageHeader = document.getElementById("windowHeader");
+        let pageFooter = document.getElementById("windowFooter");
+        
+        console.log("wind h:"+window.innerHeight);
+        console.log("altezza wind: "+portfolioWindow.offsetHeight);
+        console.log("spaz disp: "+((window.innerHeight - pageHeader.offsetHeight) - pageFooter.offsetHeight));
+        if(portfolioWindow.offsetHeight > ((window.innerHeight - pageHeader.offsetHeight) - pageFooter.offsetHeight)){
+            console.log("si");
+            setWindowHeight(windowHeight + (((window.innerHeight - pageHeader.offsetHeight) - pageFooter.offsetHeight) - portfolioWindow.offsetHeight));
+        }
+
+        setLeft((window.innerWidth - (portfolioWindow.offsetWidth))/2);
+        setTop((window.innerHeight - (portfolioWindow.offsetHeight))/2);
+        
+        console.log("put window project window at center on load");
+    }, []);
 
 
     //click zindex function
@@ -155,7 +172,7 @@ export default function App() {
     return (
         <ProjectContext.Provider value={{selectedProject, setSelectedProject}}>
         <ThemeContext.Provider value={{theme, toggleTheme}}>
-            <div className="mainWidonwContainer" style={{ left: `${leftVal}px`,  top: `${topVal}px`, position: `${position}`, width: `${windowWidth}px`}}>
+            <div className="mainWidonwContainer" id="mainPortfolioWindow" style={{ left: `${leftVal}px`,  top: `${topVal}px`, position: `${position}`, width: `${windowWidth}px`}}>
                 <div className="leftResizer" onMouseDown={(e)=>resizeMouseDown(e,"left",setLeft,windowWidth,setWindowWidth,leftVal)}></div>
                 <div className="verticalWindowContainer" >
                     <div className="topResizer" onMouseDown={(e)=>resizeMouseDown(e,"top",setTop,windowHeight,setWindowHeight,topVal)}></div>
