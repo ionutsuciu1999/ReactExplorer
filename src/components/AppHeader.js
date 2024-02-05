@@ -4,12 +4,9 @@ export default function WindowHeader() {
     return (
         <div id="windowHeader">
             <div id="nameTitle">
-                <span>osu</span>
+                <span>Ionut Suciu</span>
             </div>
             <div id="headerMenuContainer">
-                <div>
-                    <span>CHI</span>
-                </div>
                 <div>
                     <span>PROGETTI</span>
                 </div>
