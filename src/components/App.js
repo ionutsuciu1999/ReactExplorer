@@ -27,7 +27,7 @@ export default function App() {
 
     let [windowHeight, setWindowHeight] = useState(400);
     let [windowWidth, setWindowWidth] = useState();
-    var pos1=0, pos2=0,pos3=0,pos4=0,finalHeight = 0, finalWidth = 0, windowVerticalMove = 0, windowHorizontalMove = 0,  minWidth = 400, minHeight = 230;
+    var pos1=0, pos2=0,pos3=0,pos4=0,finalHeight = 0, finalWidth = 0, windowVerticalMove = 0, windowHorizontalMove = 0,  minWidth = 400, minHeight = 230, maxWidth = 825;
 
     //put windows at the center on load and resize it
     useEffect(()=>{
@@ -44,7 +44,7 @@ export default function App() {
         }
         setLeft((window.innerWidth - (portfolioWindow.offsetWidth))/2);
         setTop(((window.innerHeight - newHeight) - (portfolioWindow.offsetHeight))/2);
-        
+        setWindowWidth(document.getElementById("mainWindow").offsetWidth);
         console.log("put window project window at center on load");
     }, []);
 
@@ -62,8 +62,7 @@ export default function App() {
 
     //resize function
     const resizeMouseDown = (e,direction,setDir,oldWindowSize,setWind,oldWindowPosition) => {
-        console.log("ok grago");
-        
+
         e.preventDefault();
         //initial click position
         pos3 = e.clientX;
@@ -87,7 +86,6 @@ export default function App() {
                     setWind(finalHeight);
                 }else{
                     setWind(minHeight);
-                    setDir(windowVerticalMove);
                 }
             }else if(resizeDirection=="bottom"){
                 pos2 = pos4 - e.clientY;
@@ -107,10 +105,11 @@ export default function App() {
                 windowHorizontalMove = oldWindowPosition-pos1;
                 console.log("finalWidth:"+finalWidth)
                 if(finalWidth>minWidth){
-                    setDir(windowHorizontalMove);
-                    setWind(finalWidth);
+                    if(finalWidth<maxWidth){
+                        setDir(windowHorizontalMove);
+                        setWind(finalWidth);
+                    }
                 }else{
-                    setDir(windowHorizontalMove);
                     setWind(minWidth);
                 }
             }else if(resizeDirection=="right"){
