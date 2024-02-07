@@ -24,7 +24,8 @@ export default function App() {
     function toggleTheme(){
         setTheme((curr)=>(curr==="light" ? "dark" : "light"));
     }
-
+    let [windowProjectHeight, setWindowProjectHeight] = useState(380);
+    let [windowProjectWidth, setWindowProjectWidth] = useState();
     let [windowHeight, setWindowHeight] = useState(400);
     let [windowWidth, setWindowWidth] = useState();
     var pos1=0, pos2=0,pos3=0,pos4=0,finalHeight = 0, finalWidth = 0, windowVerticalMove = 0, windowHorizontalMove = 0,  minWidth = 400, minHeight = 230, maxWidth = 825;
@@ -166,7 +167,7 @@ export default function App() {
     
     
     return (
-        <ProjectContext.Provider value={{selectedProject, setSelectedProject}}>
+        <ProjectContext.Provider value={{selectedProject, setSelectedProject,windowProjectHeight,windowProjectWidth,setWindowProjectWidth,setWindowProjectHeight}}>
         <ThemeContext.Provider value={{theme, toggleTheme}}>
             <div className="mainWidonwContainer" id="mainPortfolioWindow" style={{ left: `${leftVal}px`,  top: `${topVal}px`, position: `${position}`, width: `${windowWidth}px`}}>
                 <div className="leftResizer" onMouseDown={(e)=>resizeMouseDown(e,"left",setLeft,windowWidth,setWindowWidth,leftVal)}></div>
@@ -174,7 +175,7 @@ export default function App() {
                     <div className="topResizer" onMouseDown={(e)=>resizeMouseDown(e,"top",setTop,windowHeight,setWindowHeight,topVal)}></div>
                     <div className={`mainWindow ${(theme)}`} id="mainWindow" >
                         <Header dragMouseDown={dragMouseDown} updateLeft={setLeft} leftValue={leftVal} updateTop={setTop} topValue={topVal} currentPosition={position} updatePosition={setPosition}/>
-                        <Body height={windowHeight} width={windowWidth}/>
+                        <Body height={windowHeight} width={windowWidth} />
                         <Footer/>
                     </div>
                     <div className="bottomResizer" onMouseDown={(e)=>resizeMouseDown(e,"bottom",setTop,windowHeight,setWindowHeight,topVal)}></div>

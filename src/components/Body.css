@@ -196,7 +196,11 @@
     background-color: rgb(75, 75, 75);
     opacity: 100%;
 }
-.light .controlsHeader img:hover, .light .headerBarBottom div:first-child > img:hover{
+.light .controlsHeader img:hover{
+    background-color: #d9d9d9;
+    opacity: 100%;
+}
+.light .headerBarBottom div:first-child > img:hover{
     background-color: #d9d9d9;
     opacity: 100%;
 }

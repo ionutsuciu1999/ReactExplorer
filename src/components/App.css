@@ -8,6 +8,13 @@
   src: url("../../public/fonts/Druk Wide Web Bold Regular.ttf");
 }
 
+ .light .projectDescription, .light .bodyProjectContainer{
+  background-color: #ffffff;
+}
+
+.light .projectTop {
+  background-color: #f0f5f9;
+}
 
 
 #wip{

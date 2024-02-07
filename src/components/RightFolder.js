@@ -7,7 +7,14 @@ export default function RightFolder(props) {
    return(
     <ProjectContext.Consumer>
         {projectSwitch => (
-            <div className="projectContainer" onClick={()=>{projectSwitch.setSelectedProject(props.item.id); document.getElementById("projectWindow").style.display = ""; document.getElementById("projectWindow").style.zIndex="1000"; }}>
+            <div className="projectContainer" onClick={()=>{
+                                   projectSwitch.setSelectedProject(props.item.id); 
+                                   document.getElementById("projectWindow").style.display = ""; 
+                                   document.getElementById("projectWindow").style.zIndex="1000"; 
+                                   
+                                    projectSwitch.setWindowProjectWidth(document.getElementById("mainWindow").offsetWidth);
+                                    console.log("put window project window at center on load");
+                                }}>
                 <img src={`../projects/${props.item.name}/icon.png`} />
                 <span>{props.item.name}</span>
             </div>

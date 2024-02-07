@@ -83,7 +83,7 @@ export default function BodyWindow(props) {
                 <div id="nextProject" onClick={()=>updateProjectFile("next")} ><img className="projectControls" src="./icons/collapseRight.png" /></div>
             </div>
             <div className="projectTop"><span className="projectTitle">{projectTitle}</span><div className="projectResourceIcons">{iconsProject}</div></div>
-            <div className="projectDescription">{projectDescription}</div>
+            <div className="projectDescription" dangerouslySetInnerHTML={{__html: projectDescription}}></div>
         </div>
     )
 }
