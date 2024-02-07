@@ -18,7 +18,6 @@ export default function Window(props) {
     useEffect(()=>{
         setLeft((window.innerWidth - (document.getElementById("projectWindow").offsetWidth))/2);
         setTop((window.innerHeight - (document.getElementById("projectWindow").offsetHeight))/2);
-        console.log("put project window at center on load");
     }, [props.selectedProject]);
 
     return (
@@ -28,7 +27,7 @@ export default function Window(props) {
                 <div className="topResizer" onMouseDown={(e)=>props.resizeMouseDown(e,"top",setTop,windowHeight,setWindowHeight,topVal)}></div>
                 <div className={`mainWindow ${(props.theme)}`}>
                     <HeaderWindow dragMouseDown={props.dragMouseDown} updateLeft={setLeft} leftValue={leftVal} updateTop={setTop} topValue={topVal} currentPosition={position} updatePosition={setPosition}/>
-                        <BodyWindow selectedProject={props.selectedProject} height={windowHeight}/>
+                        <BodyWindow selectedProject={props.selectedProject} height={windowHeight} setWindowWidth={setWindowWidth}/>
                     <Footer />
                 </div>
                 <div className="bottomResizer" onMouseDown={(e)=>props.resizeMouseDown(e,"bottom",setTop,windowHeight,setWindowHeight,topVal)}></div>

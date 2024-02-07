@@ -29,7 +29,7 @@ export default function BodyWindow(props) {
     });
 
 
-
+    
 
     let [projectFile, setProjectFile] = useState(0);
     const resourceProjects = projectsData.data.projects.map(item => {
@@ -43,6 +43,7 @@ export default function BodyWindow(props) {
             )
         }
     });
+
 
     const iconsProject = projectIcons.map(item => {
         

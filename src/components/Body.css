@@ -7,9 +7,16 @@
     background-color: #ffffff;
 }
 .projectResource{
-    width: 100%;
     max-height: 100%;
+    max-width: 100%;
 }
+
+.projectDiv{
+    max-height: 310px;
+    display: flex;
+    justify-content: center;
+}
+
 .projectResourceIcons img{
     width:40px;
     margin: 0px 5px;
@@ -49,7 +56,6 @@
 }
 
 .bodyProject{
-    height:310px;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;

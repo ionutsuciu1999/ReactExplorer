@@ -38,7 +38,6 @@ export default function App() {
         let newHeight = 0;
         console.log("spaz disp: "+((window.innerHeight - pageHeader.offsetHeight) - pageFooter.offsetHeight));
         if(portfolioWindow.offsetHeight > ((window.innerHeight - pageHeader.offsetHeight) - pageFooter.offsetHeight)){
-            console.log("si");
             newHeight = (window.innerHeight - (pageFooter.offsetHeight + pageHeader.offsetHeight) - portfolioWindow.offsetHeight);
             setWindowHeight(windowHeight + newHeight);
         }
@@ -129,7 +128,6 @@ export default function App() {
         }
         const resizeCloseDragElement = () =>{
             /* stop moving when mouse button is released:*/
-            console.log("FINEE");
             document.removeEventListener("mouseup",handlerAAA);
             document.removeEventListener("mousemove",handlerBBB);
         }
