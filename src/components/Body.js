@@ -45,7 +45,7 @@ export default function Body(props) {
                     <div id="switchFlex">
                         <div>
                             <ReactSwitch onChange={themeSwitch.toggleTheme} checked={themeSwitch.theme==="light"}/>
-                            <span>{themeSwitch.theme=="light"?"Light Mode":"Dark Mode"}</span>
+                            <span>{themeSwitch.theme=="light"?"Dark Mode":"Light Mode"}</span>
                         </div>
                     </div>
                 </div>
