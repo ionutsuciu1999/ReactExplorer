@@ -5,7 +5,7 @@ export default function WindowHeader() {
         <div id="windowHeader">
             <img src="../icons/wip.png" id="wip"/>
             <div id="nameTitle">
-                <span>Ionut Suciu</span>
+                <span>Augustin Suciu</span>
             </div>
             <div id="headerMenuContainer">
                 <div>
