@@ -2,7 +2,7 @@ import React from "react"
 
 
 export default function Header(props) {
-
+    console.log("leftvla="+props.leftValue);
     return (
         <header className="headerBody" >
             <div className="headerBarTop" id="headerBarTop" onMouseDown={(e)=>props.dragMouseDown(e,props.updateTop,props.updateLeft,props.topValue,props.leftValue,props.currentPosition,props.updatePosition)}>

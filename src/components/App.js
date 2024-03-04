@@ -136,6 +136,12 @@ export default function App() {
     
     //drag function
     const dragMouseDown = (e,updateTop,updateLeft,topValue,leftValue,currentPosition,updatePosition) => {
+
+        console.log(topValue);
+        console.log(leftValue);
+        console.log(currentPosition);
+        console.log(updatePosition);
+
         if(currentPosition=="relative"){
             updatePosition("relative");
 

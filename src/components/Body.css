@@ -187,21 +187,22 @@
     width:16px;
     padding: 7px 16px;
     opacity: 70%;
-    cursor: pointer;
+    cursor: default;
 }
 .light .controlsHeader img, .light .headerBarBottom div:first-child > img{
     filter: invert(1);
 }
+
 .controlsHeader img:hover, .headerBarBottom div:first-child > img:hover{
     background-color: rgb(75, 75, 75);
     opacity: 100%;
 }
 .light .controlsHeader img:hover{
-    background-color: #d9d9d9;
+    background-color: rgb(83, 83, 83) !important;
     opacity: 100%;
 }
 .light .headerBarBottom div:first-child > img:hover{
-    background-color: #d9d9d9;
+    background-color: rgb(37, 37, 37) !important;
     opacity: 100%;
 }
 .headerBarBottom div:nth-child(2){
@@ -315,11 +316,11 @@
 }
 .headerActionBar > *:hover{
     background-color: rgb(75, 75, 75);
-    cursor:pointer;
+    cursor:default;
     opacity: 100%;
 }
-.light .headerActionBar > *:hover{
-    background-color: #d9d9d9;
+.light .headerActionBar > div:hover{
+    background-color: #d9d9d9 !important;
 }
 .headerActionBar span{
     font-size:13px;

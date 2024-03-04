@@ -12,7 +12,6 @@ export default function RightFolder(props) {
                                    document.getElementById("projectWindow").style.display = ""; 
                                    document.getElementById("projectWindow").style.zIndex="1000"; 
                                    
-                                    projectSwitch.setWindowProjectWidth(document.getElementById("mainWindow").offsetWidth);
                                     console.log("put window project window at center on load");
                                 }}>
                 <img src={`../projects/${props.item.name}/icon.png`} />

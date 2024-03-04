@@ -13,14 +13,16 @@ export default function Window(props) {
     let [topVal, setTop] = useState(0);
     let [position, setPosition] = useState("absolute");
 
-
+    console.log("left val parent= "+leftVal);
     //doing this avoids lifting state up
+    
     useEffect(()=>{
-        setLeft((window.innerWidth - (document.getElementById("projectWindow").offsetWidth))/2);
+        
+        setLeft((document.getElementById("root").innerWidth - (document.getElementById("projectWindow").offsetWidth))/2);
         setTop((window.innerHeight - (document.getElementById("projectWindow").offsetHeight))/2);
     }, [props.selectedProject]);
 
-    
+        
         return (
         <ProjectContext.Consumer>
         {projectSwitch => (
@@ -33,7 +35,7 @@ export default function Window(props) {
                             <BodyWindow selectedProject={props.selectedProject} height={projectSwitch.windowProjectHeight} setWindowWidth={projectSwitch.setWindowProjectWidth}/>
                         <Footer />
                     </div>
-                    <div className="bottomResizer" onMouseDown={(e)=>props.resizeMouseDown(e,"bottom",setTop,projectSwitch.windowProjectHeight,props.setWindowProjectHeight,topVal)}></div>
+                    <div className="bottomResizer" onMouseDown={(e)=>props.resizeMouseDown(e,"bottom",setTop,projectSwitch.windowProjectHeight,projectSwitch.setWindowProjectHeight,topVal)}></div>
                 </div>
                 <div className="rightResizer" onMouseDown={(e)=>props.resizeMouseDown(e,"right",setLeft,projectSwitch.windowProjectWidth,projectSwitch.setWindowProjectWidth,leftVal)}></div>
             </div>
