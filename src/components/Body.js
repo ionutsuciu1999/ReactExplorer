@@ -3,10 +3,9 @@ import LeftFolder from "./LeftFolder.js"
 import RightFolder from "./RightFolder.js"
 import './Body.css';
 import projectsData from "../projectsData.js"
-import {useState, useEffect } from 'react'
+import {useState} from 'react'
 import ReactSwitch from 'react-switch'
 import {ThemeContext} from './App.js'
-import {useContext} from 'react';
 
 
 export default function Body(props) {

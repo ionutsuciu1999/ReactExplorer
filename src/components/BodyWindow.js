@@ -1,22 +1,20 @@
 import React from "react"
 import './Body.css';
 import projectsData from "../projectsData.js"
-import {useState, useEffect } from 'react'
-import {ThemeContext} from './App.js'
-import {useContext} from 'react';
-import {ProjectContext} from './App.js'
+import {useState} from 'react'
 import ProjectResource from "./ProjectResource.js";
 
 
 export default function BodyWindow(props) {
-    
+    const {selectedProject, height} = props;
+
     let filesNumber = 0;
     let projectTitle = "";
     let projectDescription = "";
     let projectIcons = [];
 
     projectsData.data.projects.map(item => {
-        if(item.id==props.selectedProject){
+        if(item.id==selectedProject){
             filesNumber = item.files.length;
             projectTitle = item.name;
             projectDescription = item.description;
@@ -33,7 +31,7 @@ export default function BodyWindow(props) {
 
     let [projectFile, setProjectFile] = useState(0);
     const resourceProjects = projectsData.data.projects.map(item => {
-        if(item.id==props.selectedProject){
+        if(item.id==selectedProject){
             return(
             <ProjectResource
                 folder="projects/"
@@ -74,7 +72,7 @@ export default function BodyWindow(props) {
     }
 
     return (
-        <div className="bodyProjectContainer" style={{ height: `${props.height}px`}}>
+        <div className="bodyProjectContainer" style={{ height: `${height}px`}}>
             <div className="bodyProject">
                 <div id="previousProject"  onClick={()=>updateProjectFile("prev")}><img className="projectControls" src="./icons/collapseLeft.png"/></div>
                 <div className="projectDiv">

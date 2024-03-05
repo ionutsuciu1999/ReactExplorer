@@ -1,12 +1,11 @@
 import React from "react"
 
-import {useState} from 'react'
-
 export default function Header(props) {
+    const {dragMouseDown, updateLeft, leftValue, updateTop, topValue, currentPosition, updatePosition} = props;
 
     return (
         <header className="headerBody">
-            <div className="headerBarTop" id="headerBarTop"  onMouseDown={(e)=>props.dragMouseDown(e,props.updateTop,props.updateLeft,props.topValue,props.leftValue,props.currentPosition,props.updatePosition)}>
+            <div className="headerBarTop" id="headerBarTop"  onMouseDown={(e)=>dragMouseDown(e,updateTop,updateLeft,topValue,leftValue,currentPosition,updatePosition)}>
                 <div className="tabHeader">
                     <img src="./icons/Computer.png"/>
                     <span className="headerBarTopTitle"><b>PROGETTI</b></span>

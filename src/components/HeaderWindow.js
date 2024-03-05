@@ -1,11 +1,13 @@
 import React from "react"
 
 
-export default function Header(props) {
-    console.log("leftvla="+props.leftValue);
+export default function HeaderWindow(props) {
+    const {dragMouseDown, updateLeft, leftValue, updateTop, topValue, currentPosition, updatePosition} = props;
+
+    console.log("leftvla="+leftValue);
     return (
         <header className="headerBody" >
-            <div className="headerBarTop" id="headerBarTop" onMouseDown={(e)=>props.dragMouseDown(e,props.updateTop,props.updateLeft,props.topValue,props.leftValue,props.currentPosition,props.updatePosition)}>
+            <div className="headerBarTop" id="headerBarTop" onMouseDown={(e)=>dragMouseDown(e, updateTop, updateLeft, topValue, leftValue, currentPosition, updatePosition)}>
                 <div>
                 </div>
                 <div className="controlsHeader">
