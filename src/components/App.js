@@ -4,23 +4,24 @@ import Body from "./Body.js"
 import Window from "./Window"
 import Footer from "./Footer.js"
 
+import WindowFooter from "./AppFooter"
+import WindowHeader from "./AppHeader"
 import {useState} from 'react'
 import {createContext} from 'react'
 import {useEffect} from 'react';
 
 import './App.css';
 
-
-export const ThemeContext = createContext(null);
 export const ProjectContext = createContext(null);
 
 export default function App() {
+    let [indexSelected, setIndexSelected] = useState(1);
     let [leftVal, setLeft] = useState(0);
     let [topVal, setTop] = useState(0);
-    let [position, setPosition] = useState("absolute");
     let [theme, setTheme] = useState("dark");
     let [selectedProject, setSelectedProject] = useState(1);
-
+    let [windowDisplay, setWindowDisplay] = useState(0);
+    let [folder, setFolder] = useState("code");
     function toggleTheme(){
         setTheme((curr)=>(curr==="light" ? "dark" : "light"));
     }
@@ -135,17 +136,9 @@ export default function App() {
     }
     
     //drag function
-    const dragMouseDown = (e,updateTop,updateLeft,topValue,leftValue,currentPosition,updatePosition) => {
-
-        console.log(topValue);
-        console.log(leftValue);
-        console.log(currentPosition);
-        console.log(updatePosition);
-
-        if(currentPosition=="relative"){
-            updatePosition("relative");
-
-        }
+    const dragMouseDown = (e,updateTop,updateLeft,topValue,leftValue) => {
+       
+        
         e.preventDefault();
         pos3 = e.clientX;
         pos4 = e.clientY;
@@ -173,14 +166,14 @@ export default function App() {
     
     
     return (
-        <ProjectContext.Provider value={{selectedProject, setSelectedProject,windowProjectHeight,windowProjectWidth,setWindowProjectWidth,setWindowProjectHeight}}>
-        <ThemeContext.Provider value={{theme, toggleTheme}}>
-            <div className="mainWidonwContainer" id="mainPortfolioWindow" style={{ left: `${leftVal}px`,  top: `${topVal}px`, position: `${position}`, width: `${windowWidth}px`}}>
+        <ProjectContext.Provider value={{selectedProject, setSelectedProject,windowProjectHeight,windowProjectWidth,setWindowProjectWidth,setWindowProjectHeight,setWindowDisplay,theme,toggleTheme,folder,setFolder,indexSelected,setIndexSelected}}>
+            <WindowHeader setFolder={setFolder} setIndexSelected={setIndexSelected}/>
+            <div className="mainWidonwContainer" id="mainPortfolioWindow" style={{ left: `${leftVal}px`,  top: `${topVal}px`, width: `${windowWidth}px`}}>
                 <div className="leftResizer" onMouseDown={(e)=>resizeMouseDown(e,"left",setLeft,windowWidth,setWindowWidth,leftVal)}></div>
                 <div className="verticalWindowContainer" >
                     <div className="topResizer" onMouseDown={(e)=>resizeMouseDown(e,"top",setTop,windowHeight,setWindowHeight,topVal)}></div>
                     <div className={`mainWindow ${(theme)}`} id="mainWindow" >
-                        <Header dragMouseDown={dragMouseDown} updateLeft={setLeft} leftValue={leftVal} updateTop={setTop} topValue={topVal} currentPosition={position} updatePosition={setPosition}/>
+                        <Header dragMouseDown={dragMouseDown} updateLeft={setLeft} leftValue={leftVal} updateTop={setTop} topValue={topVal}/>
                         <Body height={windowHeight} width={windowWidth} />
                         <Footer/>
                     </div>
@@ -188,10 +181,8 @@ export default function App() {
                 </div>
                 <div className="rightResizer" onMouseDown={(e)=>resizeMouseDown(e,"right",setLeft,windowWidth,setWindowWidth,leftVal)}></div>
             </div>
-
-            <Window theme={theme} selectedProject={selectedProject} resizeMouseDown={resizeMouseDown} dragMouseDown={dragMouseDown}/>
-            
-        </ThemeContext.Provider>
+            {windowDisplay==1?<Window theme={theme} selectedProject={selectedProject} resizeMouseDown={resizeMouseDown} dragMouseDown={dragMouseDown}/>:""}
+            <WindowFooter />
         </ProjectContext.Provider>
     )
 }

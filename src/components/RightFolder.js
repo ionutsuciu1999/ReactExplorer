@@ -9,9 +9,7 @@ export default function RightFolder(props) {
         {projectSwitch => (
             <div className="projectContainer" onClick={()=>{
                                    projectSwitch.setSelectedProject(props.item.id); 
-                                   document.getElementById("projectWindow").style.display = ""; 
-                                   document.getElementById("projectWindow").style.zIndex="1000"; 
-                                   
+                                   projectSwitch.setWindowDisplay(1);
                                     console.log("put window project window at center on load");
                                 }}>
                 <img src={`../projects/${props.item.name}/icon.png`} />

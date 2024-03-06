@@ -81,7 +81,7 @@
 
 .mainWidonwContainer{
   width: 100%;
-  
+  position: absolute;
   height: fit-content;
   display: flex;
   flex-wrap: nowrap;
